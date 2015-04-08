@@ -1,6 +1,23 @@
 // Main JS File
-$(document).ready(function(){
-	$('.header__menu--left, .header__menu--right, .menu__bar--top .fa.fa-times').click(function(){
-		$('.menu--left, .menu--right').toggleClass('open');
-	});
-})
+var p = document.getElementsByTagName('p')[0];
+var pi = p.innerHTML;
+
+var conjunctions = ["for", "and", "nor", "but", "or", "yet", "so"];
+
+var parse = function() {
+	var res = pi.replace(/ and /g, " ");
+	console.log(res);
+	p.innerHTML = res;
+	return res;
+};
+
+var parseArray = function() {
+	var conjLength = conjunctions.length;
+	for (var i = 0; i <= conjLength; i++) {
+		new RegExp('/ ' + conjunctions[i] + ' /g');
+		var res = pi.replace(conj, " ");
+		console.log(res);
+		p.innerHTML = res;
+	};
+	return;
+}
