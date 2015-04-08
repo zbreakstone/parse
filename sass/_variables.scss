@@ -1,0 +1,24 @@
+//	==========================================================================
+//	Variables                                                    
+//	===========================================================================
+
+ 	// $containers: container container-fluid;
+
+ 	$context: 1920; // Base screensize for determining the context for percentage conversions
+	$menus: left right;
+	$menu-type: right;
+
+	$chapters: 1 2 3 4 5 6;
+
+	$fontFamily-base: 'Lora', serif; // Base font-family for body styling
+	$fontFamily-accent: 'Roboto', sans-serif; // Accent font-family for headers, etc.
+ 	$fontSize-base: 16px; // Base font-size for determining relative units
+ 	$lineHeight-base: 2.1; // Base line height
+ 	$fontWeight-base: normal; // Base font-weight
+ 	$fontColor-base: #6e6e6f;
+
+ 	$gray-base: #3F3F3F;  // Base gray color
+ 	$color-secondary: #AF8812; // Secondary accent color
+
+ 	$link-base: $color-secondary; // Base link color
+	$link-secondary: lighten($link-base, 10%); // Secondary link color (for hovers, focus, active, etc.)

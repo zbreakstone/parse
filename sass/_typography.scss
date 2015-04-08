@@ -1,0 +1,103 @@
+/*	==========================================================================
+	Typography
+	==========================================================================	*/
+
+
+	/* Basic text */
+	p {
+		font-size: fluidize($target: 13px, $context: $fontSize-base, $type: font);
+	} 
+	small {}
+	strong {}
+	em {}
+	cite {}
+	code {}
+	pre {}
+
+	%glyph { // placeholder selector for subscripts and superscripts
+	  position: relative;
+	  font-size: 75%;
+	  line-height: 0;
+	  vertical-align: baseline;
+	}
+	sup {
+		@extend %glyph;
+		top: -0.5em;
+	}
+	sub {
+		@extend %glyph;
+		bottom: -0.25em;
+	}
+
+	/* Headings */
+	%heading {
+		margin: 0;
+		padding: 0;
+	}
+	h1 {
+		@extend %heading !optional;
+		font-size: 2em;
+		a {}
+	}
+	h2 {
+		@extend %heading !optional;
+		a {}
+	}
+	h3 {
+		@extend %heading !optional;
+		a {}
+	}
+	h4 {
+		@extend %heading !optional;
+		a {}
+	}
+	h5 {
+		@extend %heading !optional;
+		a {}
+	}
+	h6 {
+		@extend %heading !optional;
+		a {}
+	}
+
+	/* Lists */
+	%list {}
+	%sublist {}
+	ul {
+		@extend %list !optional;
+		ul, ol {
+			@extend %sublist !optional;
+		}
+		&.unstyled {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	ol {
+		@extend %list !optional;
+		ul, ol {
+			@extend %sublist !optional;
+		}
+		&.unstyled {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	li {}
+
+	/* Quotes */
+	blockquote {
+		p {
+
+		}
+		small {
+			&:before {
+
+			}
+		}
+	}
+
+	q:before, q:after, blockquote:before, blockquote:after {}

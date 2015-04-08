@@ -1,0 +1,74 @@
+/*  ==========================================================================
+    Base                                                    
+    ==========================================================================  */
+
+
+    /** 
+     * Box Sizing
+     * 
+     * Applies a natural box layout model to all elements so that width and padding 
+     * are essentially combined, making responsive styles easier to manage.
+     */
+
+    *, *:before, *:after {
+      @include prefixer(box-sizing, border-box);
+    }
+
+    html {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      @extend html;
+      // Website background color and default font styles
+      background: #fff;
+      color: $fontColor-base;
+      font-family: $fontFamily-base;
+      font-size: $fontSize-base;
+      line-height: $lineHeight-base;
+      // overflow-x: hidden;
+    }
+
+    /**
+     * Page Center
+     *
+     * Apply .container to full-width modules.
+     */
+
+    %container {
+      float: none;
+      margin: 0 auto;
+      padding: 175px 0;
+    }
+
+    .container {
+      @extend %container;
+      max-width: fluidize(700, $context);
+    }
+
+    .container--fluid {
+      @extend %container;
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    a {
+      color: $link-base ;
+      &:hover, &:focus { color: $link-secondary; }
+    }
+
+    hr {
+      color: #ccc;
+      background-color: #ccc;
+      height: 1px;
+      border: none;
+    }
+
+    /* Highlighted Text */
+    @include highlighter($color: #fff, $bg: #6e6e6f, $shadow: none);

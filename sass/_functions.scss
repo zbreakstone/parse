@@ -1,0 +1,15 @@
+//	==========================================================================
+//	Functions                                                    
+//	==========================================================================	*/
+
+	@function fluidize($target, $context: $context, $type: width) {
+		@if $type == font {
+			@return ($target / $context) * 1rem;
+		} @else {
+			@return ($target / $context) * 100%;
+		}
+	}
+
+	@function wAdjust($value) {
+		@return $value * 1.2941176471;
+	}

@@ -1,0 +1,41 @@
+// 	==========================================================================
+//	Mixins                                                    
+//	==========================================================================
+	
+	@mixin highlighter($color, $bg, $shadow) {
+		::-moz-selection {
+	      color: $color;
+	      background: $bg;
+	      text-shadow: $shadow;
+		}
+		::selection {
+	      color: $color;
+	      background: $bg;
+	      text-shadow: $shadow;
+		}
+	}
+	
+	@mixin prefixer($property, $value) { // Used for creating vendor prefixes
+		-webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		-o-#{$property}: $value;
+		-ms-#{$property}: $value;
+		#{$property}: $value;
+	}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
