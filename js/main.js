@@ -1,27 +1,25 @@
 // Main JS File
-var p = document.getElementsByTagName('p')[0];
-var pi = p.innerHTML;
 
-// var conjunc = ["for", "and", "nor", "but", "or", "yet", "so"];
+var btn = document.getElementById('btn');
 
-// var parse = function() {
-// 	var res = pi.replace(/ and /g, " ");
-// 	console.log(res);
-// 	p.innerHTML = res;
-// 	return res;
-// };
+var parse = function() {
+    var paragraph = document.getElementsByTagName('p')[0].innerHTML;
+    var words = ["and", "but", "or", "yet", "for", "nor", "so", "Henry", "David", "Thoreau."];
+    var newParagraph;
 
-var parseArray = function(text) {
-	var conjunc = ["for", "and", "nor", "but", "or", "yet", "so"];
-	for (var word in conjunc) {
-		// var re = /\s/;
-		// console.log(re);
-		console.log(word);
-		var text = text.replace(new RegExp(conjunc[word], "ig"), " ");
-		p.innerHTML = text;
-		console.log(p.innerHTML);
-	}
-	// return text;
-}
+    return function() {
+        var parArray = paragraph.split(' ');
+        for (var i = 0; i < words.length; i++) {
+            parArray.map(function(e) {
+                if (e === words[i]) {
+                    parArray.splice(parArray.indexOf(e), 1);
+                    //console.log(words[i]);
+                }
+            });
+        }
+        newParagraph = parArray.join(' ');
+        return document.getElementsByTagName('p')[0].innerHTML = newParagraph;;
+    };
+};
 
-// var parsed = parseArray(pi);
+btn.onclick = parse();
