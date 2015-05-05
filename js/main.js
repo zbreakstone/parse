@@ -9,14 +9,14 @@ var parse = function() {
 
     return function() {
         var parArray = paragraph.split(' ');
-        for (var i = 0; i < words.length; i++) {
+        words.map(function(i){
             parArray.map(function(e) {
-                if (e === words[i]) {
+                if (e === i) {
                     parArray.splice(parArray.indexOf(e), 1);
                     //console.log(words[i]);
                 }
             });
-        }
+        });
         newParagraph = parArray.join(' ');
         return document.getElementsByTagName('p')[0].innerHTML = newParagraph;;
     };
