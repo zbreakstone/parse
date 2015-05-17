@@ -1,4 +1,5 @@
 // Main JS File
+var par1;
 
 // Create new Parse contstructor function
 function Parse(paragraph){
@@ -11,7 +12,7 @@ function Parse(paragraph){
 
     // Method to convert the paragraph into an array to more easily remove words
     this.makeArray = function() {
-        var p = paragraph.split(' ');
+        var p = paragraph.split(/([\,\"\\\/\+\-\!\@\#\$\%\^\&\*\(\)\;\|\<\>\?\:\~\`\.\s])+/g);
         return p;
     };
 
@@ -65,12 +66,13 @@ var btn = document.getElementById('btn'),
 
 // When #btn is clicked, create a p variable, create a new Parse object and pass 'p' into it
 btn.onclick = function(){
-    var p = document.getElementsByTagName('p')[0].innerHTML,
-        par1 = new Parse(p);
+    var p = document.getElementsByTagName('p')[0].innerHTML;
+    par1 = new Parse(p);
 
     // Parse the paragraph
     par1.parse();
 
     // Increase count
     count += 1;
+    return par1;
 };
