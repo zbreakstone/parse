@@ -6,7 +6,7 @@ var parse = function() {
 	// Save inner contents of the <p> tag at the 0th-index to memory
     var paragraph = document.getElementsByTagName('p')[0].innerHTML;
     // Create array of words to remove from paragraph
-    var words = ["and", "but", "or", "yet", "for", "nor", "so", "Henry", "David", "Thoreau."];
+    var words = ['and', 'but', 'or', 'yet', 'for', 'nor', 'so', 'Henry', 'David', 'Thoreau.'];
 
     // Create and return closure that takes in paragraph and words to remove
     return function() {
@@ -17,9 +17,7 @@ var parse = function() {
         words.map(function(i){
             parArray.map(function(e) {
             	// If parArray item is exactly equal to the word to remove, remove it from the parArray
-                if (e === i) {
-                    parArray.splice(parArray.indexOf(e), 1);
-                }
+                e.toUpperCase() === i.toUpperCase() ? parArray.splice(parArray.indexOf(e), 1) : '';
             });
         });
         // Rejoin the parArray on spaces and save in new var
