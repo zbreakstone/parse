@@ -7,18 +7,19 @@ function Parse(paragraph){
     this.paragraph = paragraph;
 
     // List of words to remove
-    this.words = ['miles', 'granola', 'Henry', 'away.'];
+    this.words = ['and', 'but', 'for', 'nor', 'or', 'so', 'yet'];
     this.newParagraph = '';
 
     // Method to convert the paragraph into an array to more easily remove words
     this.makeArray = function() {
-        var p = paragraph.split(/([\,\"\\\/\+\-\!\@\#\$\%\^\&\*\(\)\;\|\<\>\?\:\~\`\.\s])+/g);
+        var p = paragraph.split(/([\s\\\/,\"\+\-!@#$%^&\*();\|<>\?:`\.])/g).filter(function(t){return t !== /([\s\\\/,\"\+\-!@#$%^&\*();\|<>\?:`\.])/g;});
+        console.log(p);
         return p;
     };
 
     // Method to count the number of words in the string after converting to array
     this.numWords = function() {
-        return paragraph.makeArray().length;
+        return this.makeArray().length;
     };
 
     // Method to count the number of characters in string
@@ -29,7 +30,7 @@ function Parse(paragraph){
     // Method to add words to the list of words to remove
     this.addWord = function(word) {
         this.words.push(word);
-        return word.charAt(0).toUpperCase() + word.slice(1) + ' added to list of words to remove!\n' +
+        return word.charAt(0).toUpperCase() + word.slice(1) + ' was added to list of words to remove!\n' +
             'Words to remove:' + this.words.map(function(e){return ' ' + e});
     };
 
@@ -54,15 +55,14 @@ function Parse(paragraph){
             });
         });
         // Rejoin the paragraph back on the spaces, and save it to the newParagraph property
-        this.newParagraph = parArray.join(' ');
+        this.newParagraph = parArray.join('');
         // Set the innerHTML for the paragraph to the contents of the newParagraph property, and return
         return document.getElementsByTagName('p')[0].innerHTML = this.newParagraph;
     };
 }
 
 // Cache the button#btn element and a count variable
-var btn = document.getElementById('btn'),
-    count = 1;
+var btn = document.getElementById('btn');
 
 // When #btn is clicked, create a p variable, create a new Parse object and pass 'p' into it
 btn.onclick = function(){
@@ -73,6 +73,5 @@ btn.onclick = function(){
     par1.parse();
 
     // Increase count
-    count += 1;
     return par1;
 };
